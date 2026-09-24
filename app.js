@@ -104,6 +104,7 @@ console.log("Total Poin Merchandise Kamu adalah " + poinMerchandise);
 console.log("Total Poin keseluruhan Kamu adalah " + totalPoin);
 
 
+
 // ============================================================
 // AKTIVITAS 4: Percabangan if-else — Penentuan Tier Membership
 // ============================================================
@@ -118,7 +119,30 @@ console.log("Total Poin keseluruhan Kamu adalah " + totalPoin);
 // 3. Cetak hasil tierMember dan benefit ke Console.
 // 4. Tampilkan ringkasan hasil member (nama, total poin, tier, benefit) via dialog alert().
 
+let tierMember = "";
+let benefit = "";
 
+if (totalPoin >=100) {
+    tierMember = "Platinum";
+    benefit = "Diskon 20% + Gratis 1 Minuman Signature";
+} else if(totalPoin >=70) {
+    tierMember = "Gold";
+    benefit = "Diskon 10% di setiap transaksi";
+} else if(totalPoin >=40) {
+    tierMember = "Silver";
+    benefit = "Diskon 5% untuk menu minuman";
+} else {
+    tierMember = "Bronzer";
+    benefit = "Member Reguler (kumpulkan poin untuk naik tier)";
+}
+
+console.log ("Tier kamu " + tierMember + " Benefit yang di dapat " + benefit);
+alert(
+    "Nama Pelanggan : " + namaPelanggan + ":\n" +
+    "Total Point : " + totalPoin + ":\n" +
+    "Tier : " + tierMember + ":\n" +
+    "Benefit : " + benefit
+);
 
 
 // ============================================================
@@ -128,15 +152,22 @@ console.log("Total Poin keseluruhan Kamu adalah " + totalPoin);
 // TODO 5A:
 // Buat fungsi "hitungTotalPoin(p1, p2, p3)" yang menerima 3 parameter nilai poin,
 // menjumlahkannya, dan mengembalikan (return) nilai total penjumlahannya.
-
+function hitungTotalPoin(point1, point2, point3){
+    let jumlahPoin = point1 + point2 + point3;
+    return jumlahPoin;
+}
 
 
 
 // TODO 5B:
 // Buat fungsi "tentukanTierMember(poin)" yang menerima 1 parameter nilai poin,
 // dan mengembalikan (return) string nama tier beserta keterangannya.
-
-
+function tentukanTierBenefit(tierMember){
+    if(tierMember>=100) return "Platinum - Diskon 20% + Gratis 1 Minuman Signature";
+    if(tierMember>=70) return "Gold - Diskon 10% di setiap transaksi";
+    if(tierMember>=40) return "Silver - Diskon 5% untuk menu minuman";
+    return "Bronzer - Member Reguler (kumpulkan poin untuk naik tier)";
+}
 
 
 // TODO 5C:
@@ -145,7 +176,15 @@ console.log("Total Poin keseluruhan Kamu adalah " + totalPoin);
 // 2. Hitung total poin dan tentukan tier untuk simulasi Pelanggan C (misal poin: 15, 10, 5).
 // 3. Cetak data Pelanggan B dan C ke tab Console.
 
+let pelangganB = hitungTotalPoin(35, 35, 20);
+let pelangganC = hitungTotalPoin(15, 10, 5);
 
+let TierPelangganB = tentukanTierBenefit(pelangganB);
+let TierPelangganC = tentukanTierBenefit(pelangganC);
+
+console.log("=== Data Tier dan Benefit Pelanggan === ");
+console.log("Pelanggan B Tier dan Benefit yang kamu dapat " + TierPelangganB);
+console.log("Pelanggan C Tier dan Benefit yang kamu dapat " + TierPelangganC);
 
 
 // ============================================================
